@@ -1,16 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>留言板</title>
-</head>
-<body>
-    <h1>留言列表</h1>
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>留言列表</h1>
     <ul>
         {% for mess in mess_list %} 
-        <li>{{ mess.created }} {{ mess.subject }}</li> <!-- List Item -->
+        <li>{{ mess.created }} <a href="{% url 'mess_read' mess.id  %}">{{ mess.subject }}</a></li> <!-- List Item -->
         {% endfor %}
-    </ul>
-</body>
-</html>
+    </ul> 
+{% endblock %}
